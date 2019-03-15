@@ -1,7 +1,7 @@
 [cloudera-manager]
 name=Cloudera Manager {{ cloudera_version }}
 baseurl=https://archive.cloudera.com/cm6/{{ cloudera_version }}/redhat7/yum/
-gpgkey=https://archive.cloudera.com/cm6/{{ cloudera_version }}/redhat7/yum/RPM-GPG-KEY-cloudera
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-cloudera
 gpgcheck=1
 enabled=1
 autorefresh=0

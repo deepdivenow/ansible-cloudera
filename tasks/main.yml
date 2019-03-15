@@ -6,6 +6,15 @@
     src: cloudera-manager.repo.j2
     dest: /etc/yum.repos.d/cloudera-manager.repo
 
+- name: Add pgp key
+  copy:
+    src: RPM-GPG-KEY-cloudera
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-cloudera
+
+- name: Add pgp key to rpm
+  rpm_key:
+    state: present
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-cloudera
 
 - name: Install cloudera packages
   yum:
