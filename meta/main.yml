@@ -1,0 +1,13 @@
+# meta file for cloudera
+---
+galaxy_info:
+  author: Andrey I. Kislyak
+  description: Set up Cloudera on RHEL systems
+  license: Apache
+  min_ansible_version: 2.5.0.0
+  platforms:
+    - name: EL
+      versions:
+      - 7
+
+dependencies: []

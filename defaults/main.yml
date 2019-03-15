@@ -1,0 +1,15 @@
+---
+# defaults file for ansible-cloudera
+cloudera_version: 6.1.1
+cloudera_packages:
+  - oracle-j2sdk1.8
+  - cloudera-manager-daemons
+  - cloudera-manager-agent
+  - cloudera-manager-server
+
+cloudera_db_type: postgresql
+cloudera_db_host: localhost
+cloudera_db_port: 5432
+cloudera_db_name: scm
+cloudera_db_user: scm
+cloudera_db_pass: scm

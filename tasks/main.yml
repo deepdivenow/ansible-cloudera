@@ -1,0 +1,24 @@
+---
+# tasks file for ansible-cloudera
+
+- name: Add cloudera repo
+  template:
+    src: cloudera-manager.repo.j2
+    dest: /etc/yum.repos.d/cloudera-manager.repo
+
+
+- name: Install cloudera packages
+  yum:
+    name: "{{ cloudera_packages }}"
+    state: present
+
+- name: Prepare DB for Cloudera Manager
+  command: |
+    /opt/cloudera/cm/schema/scm_prepare_database.sh -h {{ cloudera_db_host }} -P {{ cloudera_db_port}}
+        {{ cloudera_db_type }} {{ cloudera_db_name}} {{ cloudera_db_user}} {{ cloudera_db_pass }}
+
+- name: Start&Enable Cloudera Manager
+  service:
+    name: cloudera-scm-server
+    state: started
+    enabled: True
